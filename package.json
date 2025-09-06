@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/styles/style.css --watch",
+    "build:dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/styles/style.min.css --minify",
+    "dev": "vite build"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "vite": "^7.0.5"
+  }
+}
