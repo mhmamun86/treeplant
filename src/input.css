@@ -6,7 +6,7 @@
   --font-noto: 'Noto Serif', serif;
   --font-inter: 'Inter', sans-serif;
   --width-custom-container: 1120px;
-  --max-width-site: 1440px;
+  --max-width-site: 1920px;
   --color-p: rgba(0, 0, 0, 0.5);
 }
 
@@ -16,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
     font-family: var(--font-inter);
-    background-color: #f5f8ff;
+    background-color: #f0fdf4;
   }
 }
 
