@@ -14,24 +14,29 @@
 <body>
   <!-- Navbar section -->
   <header class="bg-[#15803D] w-full text-white">
-    <div class="navbar w-11/12 mx-auto">
+    <div class="navbar w-11/12 mx-auto flex flex-col gap-1.5 justify-center sm:flex-row">
       <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <div class="dropdown ">
+          <div tabindex="0" role="button" class="btn btn-ghost sm:block lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
-          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a><button class=""> <i class="fa-solid fa-circle-question"></i>
-                  FAQ</button></a></li>
+          <ul tabindex="0" class="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-62 p-2 shadow  bg-[#15803D]">
+            <li><a><button class="">
+                  About</button></a></li>
             <li>
-              <a href=""><button class=""> <i class="fa-solid fa-book-open"></i>
-                  Learn</button></a>
+              <a href=""><button class="">
+                  Gallery</button></a>
             </li>
-            <li><a><button class=""> <i class="fa-solid fa-right-from-bracket"></i>
-                  LogOut</button></a></li>
+            <li><a><button class="">
+                  Plant a Tree</button></a></li>
+            <li class="sm:hidden">
+              <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] mb-2">Plant a
+                Tree</button>
+              <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D]">View Cart</button>
+            </li>
           </ul>
         </div>
         <div class="flex justify-center items-center gap-2">
@@ -41,10 +46,6 @@
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1 flex gap-5">
-          <!-- <li><a onclick="showBookmark()" class="btn btn-outline btn-primary"> <i
-                class="fa-solid fa-heart text-red-600"></i></i>
-            </a>
-          </li> -->
           <li><a href="" class="">
               About</a>
           </li>
@@ -56,8 +57,9 @@
           </li>
         </ul>
       </div>
-      <div class="navbar-end">
-        <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D]">Plant a Tree</button>
+      <div class="navbar-end space-x-2">
+        <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] hidden sm:block">Plant a Tree</button>
+        <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] hidden sm:block">View Cart</button>
       </div>
     </div>
   </header>
@@ -81,7 +83,7 @@
       </div>
     </section> -->
 
-    <section class="header bg-[#CFF0DC] px-2.5">
+    <section class="header bg-[#CFF0DC] px-2.5 mb-8 md:mb-[100px]">
       <div class="grid grid-cols-2 auto-rows-auto gap-4 lg:grid-cols-12 lg:grid-rows-2 items-center justify-center">
         <div class="col-span-1 row-span-1 lg:col-span-4 lg:row-span-2 flex items-end">
           <img src="./dist/assets/hero-leaf1.png" alt="">
@@ -97,12 +99,187 @@
           </p>
           <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] ">Get Involved</button>
         </div>
+      </div>
+    </section>
+    <!-- Main content Start -->
+    <section class="main w-11/12 mx-auto pb-10 md:pb-28">
+      <h1 class=" text-center font-semibold text-[2rem] text-[#1F2937] mb-2 md:mb-10">Choose Your Trees</h1>
+      <div class="main-container grid grid-cols-12 auto-rows-auto gap-7">
+        <!-- categories -->
+        <aside
+          class="categories col-span-12 sm:col-span-6 lg:col-span-3 xl:col-span-2 row-span-1 row-start-2 lg:row-start-1">
+          <h2 class="font-semibold text-xl mb-4">Categories</h2>
+          <ul class="space-y-2">
+            <li>
+              <button class="btn bg-[#15803D] px-2.5 py-2 text-white font-medium w-full justify-start">All
+                Trees</button>
+            </li>
+            <li>
+              <button class="btn bg-[#15803D] px-2.5 py-2 text-white font-medium w-full justify-start">Ornamental
+                Plants</button>
+            </li>
+          </ul>
 
+        </aside>
+        <!-- content -->
+        <aside
+          class="content col-span-12 lg:col-span-6 xl:col-span-7 grid grid-cols-1 row-span-1 row-start-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div class="card bg-white p-4 rounded-lg ">
+            <figure class="aspect-[4/3]">
+              <img class="rounded-lg w-full h-full object-cover" src="./dist/assets/mango-min.jpg" alt="Shoes" />
+            </figure>
+            <div class="card-body p-0 mt-3">
+              <h2 class="font-semibold text-sm mb-1">
+                Mango Tree
+              </h2>
+              <div class="w-full">
+                <p class="opacity-80 text-[0.75rem] line-clamp-2">
+                  A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green
+                  leaves provide
+                  ample shade and attract birds.
+                </p>
+              </div>
+              <div class="card-actions justify-between">
+                <div class="badge bg-[#DCFCE7] rounded-[400px] font-medium text-sm font-geist text-[#15803D]">
+                  Fruit
+                  Tree</div>
+                <span class="font-semibold text-sm">$500<span />
+              </div>
+              <button class="btn bg-[#15803D] px-5 py-3 mt-3 text-white font-medium w-full rounded-[999px]">Add
+                Cart</button>
+            </div>
+          </div>
+
+          <div class="card bg-white p-4 rounded-lg ">
+            <figure class="aspect-[4/3]">
+              <img class="rounded-lg w-full h-full object-cover" src="./dist/assets/mango-min.jpg" alt="Shoes" />
+            </figure>
+            <div class="card-body p-0 mt-3">
+              <h2 class="font-semibold text-sm mb-1">
+                Mango Tree
+              </h2>
+              <div class="w-full">
+                <p class="opacity-80 text-[0.75rem] line-clamp-2">
+                  A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green
+                  leaves provide
+                  ample shade and attract birds.
+                </p>
+              </div>
+              <div class="card-actions justify-between">
+                <div class="badge bg-[#DCFCE7] rounded-[400px] font-medium text-sm font-geist text-[#15803D]">
+                  Fruit
+                  Tree</div>
+                <span class="font-semibold text-sm">$500<span />
+              </div>
+              <button class="btn bg-[#15803D] px-5 py-3 mt-3 text-white font-medium w-full rounded-[999px]">Add
+                Cart</button>
+            </div>
+          </div>
+          <div class="card bg-white p-4 rounded-lg ">
+            <figure class="aspect-[4/3]">
+              <img class="rounded-lg w-full h-full object-cover" src="./dist/assets/mango-min.jpg" alt="Shoes" />
+            </figure>
+            <div class="card-body p-0 mt-3">
+              <h2 class="font-semibold text-sm mb-1">
+                Mango Tree
+              </h2>
+              <div class="w-full">
+                <p class="opacity-80 text-[0.75rem] line-clamp-2">
+                  A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green
+                  leaves provide
+                  ample shade and attract birds.
+                </p>
+              </div>
+              <div class="card-actions justify-between">
+                <div class="badge bg-[#DCFCE7] rounded-[400px] font-medium text-sm font-geist text-[#15803D]">
+                  Fruit
+                  Tree</div>
+                <span class="font-semibold text-sm">$500<span />
+              </div>
+              <button class="btn bg-[#15803D] px-5 py-3 mt-3 text-white font-medium w-full rounded-[999px]">Add
+                Cart</button>
+            </div>
+          </div>
+        </aside>
+        <!-- cart -->
+        <aside
+          class="cart bg-white rounded-2xl p-4 sm:col-span-6 lg:col-span-3 lg:row-start-0 hidden sm:block h-auto self-start">
+          <h1 class="font-semibold text-xl mb-2">Your Cart</h1>
+          <ul class="list rounded-lg space-y-2">
+            <li class="list-row p-2 bg-[#F0FDF4] ">
+              <div class="list-col-grow">
+                <h2 class="font-semibold text-sm mb-2">Mango Tree</h2>
+                <div class=" font-semibold opacity-50">ট <span>500</span><i class="fa-solid fa-xmark"></i><span>1</span>
+                </div>
+              </div>
+              <button class="btn btn-square btn-ghost">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </li>
+            <li class="list-row p-2 bg-[#F0FDF4] ">
+              <div class="list-col-grow">
+                <h2 class="font-semibold text-sm mb-2">Mango Tree</h2>
+                <div class=" font-semibold opacity-50">ট <span>500</span><i class="fa-solid fa-xmark"></i><span>1</span>
+                </div>
+              </div>
+              <button class="btn btn-square btn-ghost">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
 
+    <!-- Campaign section -->
+    <section class="w-11/12 xl:w-7/12 mx-auto">
+      <h1 class="text-center text-[2rem] font-semibold">About the Campaign</h1>
+      <div class="mt-10 mb-24 flex flex-col sm:flex-row justify-between items-center gap-7">
+        <div class="flex-1">
+          <img src="./dist/assets/about.png" alt="">
+        </div>
+        <div class="flex-1 opacity-80">
+          <p class=" mb-3">Green Earth is a global tree plantation initiative dedicated to fighting climate
+            change.
+            Since our start,
+            we’ve planted
+            over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for
+            wildlife, and
+            combat global warming.</p>
+          <ul class="list-disc pl-5">
+            <li>Restoration of natural habitats</li>
+            <li>Improvement of air quality</li>
+            <li>Support for local communities</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- Impact section -->
+    <section class="bg-[#CFF0DC] py-10 md:py-[100px]">
+      <div class="w-11/12 mx-auto">
+        <h1 class="font-semibold text-[2rem] text-center">Our Impact</h1>
+        <div class="flex flex-col sm:flex-row gap-2.5 md:gap-[50px] mt-10">
+          <div class="p-10 bg-white rounded-xl w-full text-center">
+            <h1 class="text-[#15803D] font-semibold text-[2rem] mb-3">500K+</h1>
+            <p class="opacity-80">Trees Planted</p>
+          </div>
+          <div class="p-10 bg-white rounded-xl w-full text-center">
+            <h1 class="text-[#15803D] font-semibold text-[2rem] mb-3">120+</h1>
+            <p class="opacity-80">Communities Involved</p>
+          </div>
+          <div class="p-10 bg-white rounded-xl w-full text-center">
+            <h1 class="text-[#15803D] font-semibold text-[2rem] mb-3">30+</h1>
+            <p class="opacity-80">Countries Reached</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Form Section -->
+    <section class="bg-[#166534]">
+
+    </section>
   </main>
 
 </body>
