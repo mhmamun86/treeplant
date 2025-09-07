@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tree Plant | Home</title>
+  <link rel="icon" type="image/x-icon" href="./dist/assets/logo1.png">
   <link rel="stylesheet" href="./dist/styles/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -108,14 +109,11 @@
         <!-- categories -->
         <aside
           class="categories col-span-12 sm:col-span-6 lg:col-span-3 xl:col-span-2 row-span-1 row-start-2 lg:row-start-1">
-          <h2 class="font-semibold text-xl mb-4">Categories</h2>
+          <h2 class="font-semibold text-xl mb-4 text-center sm:text-left">Categories</h2>
           <ul class="space-y-2">
             <li>
-              <button class="btn bg-[#15803D] px-2.5 py-2 text-white font-medium w-full justify-start">All
-                Trees</button>
-            </li>
-            <li>
-              <button class="btn bg-[#15803D] px-2.5 py-2 text-white font-medium w-full justify-start">Ornamental
+              <button
+                class="btn hover:bg-[#15803D] hover:text-white px-2.5 py-2 text-black font-medium w-full justify-start">All
                 Plants</button>
             </li>
           </ul>
@@ -234,7 +232,7 @@
     <!-- Campaign section -->
     <section class="w-11/12 xl:w-7/12 mx-auto">
       <h1 class="text-center text-[2rem] font-semibold">About the Campaign</h1>
-      <div class="mt-10 mb-24 flex flex-col sm:flex-row justify-between items-center gap-7">
+      <div class="mt-3 lg:mt-10 mb-24 flex flex-col sm:flex-row justify-between items-center gap-7">
         <div class="flex-1">
           <img src="./dist/assets/about.png" alt="">
         </div>
@@ -259,7 +257,7 @@
     <section class="bg-[#CFF0DC] py-10 md:py-[100px]">
       <div class="w-11/12 mx-auto">
         <h1 class="font-semibold text-[2rem] text-center">Our Impact</h1>
-        <div class="flex flex-col sm:flex-row gap-2.5 md:gap-[50px] mt-10">
+        <div class="flex flex-col sm:flex-row gap-2.5 md:gap-[50px] mt-3 lg:mt-10">
           <div class="p-10 bg-white rounded-xl w-full text-center">
             <h1 class="text-[#15803D] font-semibold text-[2rem] mb-3">500K+</h1>
             <p class="opacity-80">Trees Planted</p>
@@ -278,10 +276,33 @@
 
     <!-- Form Section -->
     <section class="bg-[#166534]">
-
+      <div class=" py-10 md:py-[100px] w-11/12 lg:w-4/12 mx-auto">
+        <h1 class="text-center font-semibold text-[2rem] text-white  mb-3 lg:mb-10">Plant a Tree Today</h1>
+        <div class="form bg-[#15803D] p-4 md:p-10 rounded-xl">
+          <form class="flex flex-col items-center space-y-3" action="">
+            <input type="text" placeholder="Your Name" class="input w-full" />
+            <input type="email" placeholder="Your Email Address" class="input w-full" />
+            <select class="select w-full">
+              <option disabled selected>Number of Trees</option>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+            </select>
+            <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] w-full mt-3">Donate Now</button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer>
+    <div class="bg-[#14532D] py-6">
+      <h2 class="text-center text-white ">
+        © 2025 Green Earth. All Rights Reserved.
+      </h2>
+    </div>
+  </footer>
 </body>
 
 </html>
