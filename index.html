@@ -15,11 +15,11 @@
 <body>
   <!-- Navbar section -->
   <header class="bg-[#15803D] w-full text-white">
-    <div class="navbar w-11/12 mx-auto flex gap-1.5 justify-between sm:justify-center sm:flex-row">
+    <div class="navbar w-11/12 mx-auto flex gap-1.5 justify-between sm:justify-center">
       <div class="navbar-start">
         <div class="flex justify-center items-center gap-2">
           <img class="w-12" src="./dist/assets/logo1.png" alt="">
-          <a class="font-tio-bangla text-xl font-semibold " href="">Green Earth</a>
+          <a class="text-xl font-semibold " href="">Green Earth</a>
         </div>
       </div>
       <div class="navbar-center hidden lg:flex">
@@ -38,15 +38,16 @@
       <div class="navbar-end space-x-2">
         <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] hidden sm:block">Plant a Tree</button>
       </div>
-
       <div class="dropdown relative">
         <div tabindex="0" role="button" class="btn bg-[#15803D] border-0  sm:block lg:hidden ">
           <i class="fa-solid fa-cart-shopping text-[#FACC15]"></i>
         </div>
-        <ul tabindex="0"
-          class="dropdown-content menu p-4 shadow-lg rounded-box w-72 mt-5 bg-[#15803D] z-50 right-0 text-black transform translate-x-15">
+
+        <ul id="" tabindex="0"
+          class="dropdown-content menu rounded-box w-[300px] mt-5 p-4 z-50 right-0 transform translate-x-15 bg-[#15803D] text-white cart-click-parent">
           <h1 class="font-semibold text-xl mb-2 text-white">Your Cart</h1>
-          <ul id="cart-parent-mobile" class="list space-y-2"></ul>
+          <ul id="cart-parent-mobile" class="list space-y-2 text-black">
+          </ul>
           <hr class="border-1 opacity-10 my-2">
           <div class="flex justify-between items-center text-white">
             <h1 class="font-medium">Total:</h1>
@@ -54,9 +55,8 @@
           </div>
         </ul>
       </div>
-
       <div class="dropdown ">
-        <div tabindex="0" role="button" class="btn bg-[#15803D] border-0ghjj sm:block lg:hidden">
+        <div tabindex="0" role="button" class="btn bg-[#15803D] border-0 sm:block lg:hidden">
           <i class="fa-solid fa-bars text-[#FACC15]"></i>
         </div>
         <ul tabindex="0"
@@ -72,7 +72,7 @@
           <li class="sm:hidden">
             <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D] mb-2">Plant a
               Tree</button>
-            <!-- <button class="btn bg-[#FACC15] rounded-[999px] text-[#15803D]">View Cart</button> -->
+
           </li>
         </ul>
       </div>
@@ -145,8 +145,8 @@
 
         </aside>
         <!-- cart -->
-        <aside
-          class="cart bg-white rounded-2xl p-4 sm:col-span-6 lg:col-span-3 lg:row-start-0 hidden sm:block h-auto self-start">
+        <aside id=""
+          class="cart bg-white rounded-2xl p-4 sm:col-span-6 lg:col-span-3 lg:row-start-0 hidden sm:block h-auto self-start cart-click-parent">
           <h1 class="font-semibold text-xl mb-2">Your Cart</h1>
           <ul id="cart-parent-desktop" class="list rounded-lg space-y-2">
 
@@ -239,6 +239,9 @@
     </div>
   </footer>
 
+
+  <div id="alert-container" class="fixed inset-0 flex flex-col items-center justify-center z-50 pointer-events-none">
+  </div>
 
   <dialog id="modal" class="modal">
     <div class="modal-box">

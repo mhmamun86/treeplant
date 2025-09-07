@@ -62,7 +62,6 @@ const loadAllProduct = async () => {
 const displayProduct = product => {
   cardParent.innerHTML = '';
   product.forEach(each => {
-    // { id: 1, image: "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg", name: "Mango Tree", description: "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.", category: "Fruit Tree", price: 500 }
     cardParent.innerHTML += `
     <div class="card bg-white p-4 rounded-lg product-card">
             <figure class="aspect-[4/3]">
@@ -99,7 +98,6 @@ const spinner = () => {
 let cart = [];
 document.querySelector('#card-parent').addEventListener('click', e => {
   const btnCart = e.target.closest('.btn-cart');
-
   const titleClick = e.target.closest('.title-click');
   if (btnCart) {
     const title = btnCart.parentNode.children[0].innerText;
@@ -118,6 +116,17 @@ document.querySelector('#card-parent').addEventListener('click', e => {
     loadPlantDetails(id);
   }
 });
+
+document.querySelectorAll('.cart-click-parent').forEach(parent => {
+  parent.addEventListener('click', e => {
+    const nameClick = e.target.closest('.cart-name');
+    if (nameClick) {
+      const id = nameClick.dataset.id;
+      loadPlantDetails(id);
+    }
+  });
+});
+// load single plant
 const loadPlantDetails = async id => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/plant/${id}`
@@ -135,17 +144,22 @@ const loadPlantDetails = async id => {
     `;
   getModal.showModal();
 };
+
+// add to cart
 const addToCart = data => {
   const exist = cart.find(each => each.id === data.id);
   if (exist) {
     exist.quantity += 1;
+    showAlert(`${data.name} quantity updated`);
   } else {
     cart.push({ ...data, quantity: 1 });
+    showAlert(`${data.name} added to cart`);
   }
   showCart(cartParentDesktop, totalAmount);
   showCart(cartParentMobile, totalAmountMobile);
 };
 
+// cart display
 const showCart = (container, totalEl) => {
   container.innerHTML = '';
   let total = 0;
@@ -153,16 +167,22 @@ const showCart = (container, totalEl) => {
     total += item.price * item.quantity;
     // { id: "2", name: "Guava Tree", price: "350", quantity: 1 }
     container.innerHTML += `
-    <li class="list-row p-2 bg-[#F0FDF4] ">
-              <div class="list-col-grow">
-                <h2 class="font-semibold text-sm mb-2">${item.name}</h2>
-                <div class=" font-semibold opacity-50">ট <span>${item.price}</span><i class="fa-solid fa-xmark"></i><span>${item.quantity}</span>
+    <li class=" p-2 bg-[#F0FDF4]">
+            <div class="flex justify-between">
+              <div>
+                <div class="list flex flex-col">
+                  <h2 class="font-semibold text-sm mb-2 cart-name" data-id="${item.id}">${item.name}</h2>
+                  <div class=" font-semibold opacity-70">${item.price}</span><i class="fa-solid fa-xmark"></i><span>${item.quantity}</span>
+                </div>
                 </div>
               </div>
-              <button onclick="updateCart('${item.id}')" class="btn btn-square btn-ghost">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-    </li>
+              <div>
+                <button onclick="updateCart('${item.id}')" class="btn btn-square btn-ghost ">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+          </li>
     `;
   });
   totalEl.innerHTML = total;
@@ -170,9 +190,33 @@ const showCart = (container, totalEl) => {
 
 // Update cart
 const updateCart = id => {
+  const product = cart.find(item => item.id === id);
   cart = cart.filter(item => item.id !== id);
   showCart(cartParentDesktop, totalAmount);
   showCart(cartParentMobile, totalAmountMobile);
+  if (product) {
+    showAlert(`${product.name} removed from cart`);
+  }
+};
+
+// show alert
+const showAlert = message => {
+  const container = document.getElementById('alert-container');
+  const alert = document.createElement('div');
+  alert.setAttribute('role', 'alert');
+  alert.innerHTML = `<div class="bg-green-200 px-6 py-4 my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
+        <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+            <path fill="currentColor"
+                d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
+            </path>
+        </svg>
+        <span class="text-green-800">${message}</span>
+    </div`;
+  container.append(alert);
+  setTimeout(() => {
+    alert.classList.add('opacity-10', 'scale-90');
+    setTimeout(() => alert.remove(), 500);
+  }, 2000);
 };
 
 loadCategories();
