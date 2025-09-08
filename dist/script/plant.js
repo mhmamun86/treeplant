@@ -111,16 +111,17 @@ document.querySelector('#card-parent').addEventListener('click', e => {
   const btnCart = e.target.closest('.btn-cart');
   const titleClick = e.target.closest('.title-click');
   if (btnCart) {
-    const title = btnCart.parentNode.children[0].innerText;
-    const price =
-      btnCart.parentNode.children[2].children[1].children[0].innerText;
     const id = btnCart.dataset.id;
-    const allDetails = {
-      id: id,
-      name: title,
-      price: price,
-    };
-    addToCart(allDetails);
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        const productInfo = {
+          id: data.plants.id,
+          name: data.plants.name,
+          price: data.plants.price,
+        };
+        addToCart(productInfo);
+      });
   }
   if (titleClick) {
     const id = titleClick.dataset.name;
@@ -165,7 +166,7 @@ const addToCart = data => {
     exist.quantity += 1;
     showAlert(`${data.name} quantity updated`);
   } else {
-    cart.push({ ...data, quantity: 1 });
+    cart.unshift({ ...data, quantity: 1 });
     showAlert(`${data.name} added to cart`);
   }
   showCart(cartParentDesktop, totalAmount);
@@ -190,7 +191,7 @@ const showCart = (container, totalEl) => {
                 </div>
               </div>
               <div>
-                <button onclick="updateCart('${item.id}')" class="btn btn-square btn-ghost ">
+                <button onclick="updateCart(${item.id})" class="btn btn-square btn-ghost ">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
