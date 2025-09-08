@@ -10,6 +10,7 @@ let totalAmount = getEl('total-amount');
 let totalAmountMobile = getEl('total-amount-mobile');
 const getModal = getEl('modal');
 const modalParent = getEl('modal-parent');
+
 // Load categories
 const loadCategories = async () => {
   const res = await fetch(
@@ -29,6 +30,7 @@ const showCategories = data => {
     </li>
     `;
   });
+
   document.addEventListener('click', e => {
     const btn = e.target.closest('.btn-cat');
     if (e.target.closest('.btn-cat')) {
@@ -65,11 +67,15 @@ const displayProduct = product => {
     cardParent.innerHTML += `
     <div class="card bg-white p-4 rounded-lg product-card">
             <figure class="aspect-[4/3]">
-              <img class="rounded-lg w-full h-full object-cover" src="${each.image}" />
+              <img class="rounded-lg w-full h-full object-cover" src="${
+                each.image
+              }" />
             </figure>
             <div class="card-body p-0 mt-3">
-              <h2 class="font-semibold text-sm mb-1 title-click " data-name="${each.id}">
-                ${each.name}
+              <h2 class="font-semibold text-sm mb-1 title-click " data-name="${
+                each.id
+              }">
+                ${each.name ? each.name : 'Name missing'} 
               </h2>
               <div class="w-full">
                 <p class="opacity-80 text-[0.75rem] line-clamp-2">
@@ -79,9 +85,13 @@ const displayProduct = product => {
               <div class="card-actions justify-between">
                 <div class="badge bg-[#DCFCE7] rounded-[400px] font-medium text-sm font-geist text-[#15803D]">
                  ${each.category}</div>
-                <h2 class="font-semibold text-sm"> ট <span>${each.price}<span /></h2>
+                <h2 class="font-semibold text-sm"> ট <span>${
+                  each.price
+                }<span /></h2>
               </div>
-              <button class="btn bg-[#15803D] px-5 py-3 mt-3 text-white font-medium w-full rounded-[999px] btn-cart" data-id="${each.id}">Add
+              <button class="btn bg-[#15803D] px-5 py-3 mt-3 text-white font-medium w-full rounded-[999px] btn-cart" data-id="${
+                each.id
+              }">Add
                 Cart</button>
             </div>
           </div>
@@ -95,6 +105,7 @@ const spinner = () => {
           </div>`;
 };
 
+// cart function
 let cart = [];
 document.querySelector('#card-parent').addEventListener('click', e => {
   const btnCart = e.target.closest('.btn-cart');
@@ -117,6 +128,7 @@ document.querySelector('#card-parent').addEventListener('click', e => {
   }
 });
 
+// show plant details by clicking cart plant title
 document.querySelectorAll('.cart-click-parent').forEach(parent => {
   parent.addEventListener('click', e => {
     const nameClick = e.target.closest('.cart-name');
@@ -126,6 +138,7 @@ document.querySelectorAll('.cart-click-parent').forEach(parent => {
     }
   });
 });
+
 // load single plant
 const loadPlantDetails = async id => {
   const res = await fetch(
@@ -203,14 +216,9 @@ const updateCart = id => {
 const showAlert = message => {
   const container = document.getElementById('alert-container');
   const alert = document.createElement('div');
-  alert.setAttribute('role', 'alert');
   alert.innerHTML = `<div class="bg-green-200 px-6 py-4 my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
-        <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
-            <path fill="currentColor"
-                d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
-            </path>
-        </svg>
-        <span class="text-green-800">${message}</span>
+        <i class="fa-regular fa-circle-check "></i>
+        <span class="text-green-800"> ${message}</span>
     </div`;
   container.append(alert);
   setTimeout(() => {

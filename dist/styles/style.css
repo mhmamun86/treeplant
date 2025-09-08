@@ -2611,6 +2611,10 @@
     border-style: var(--tw-border-style);
     border-width: 2px;
   }
+  .border-none {
+    --tw-border-style: none;
+    border-style: none;
+  }
   .badge-outline {
     color: var(--badge-color);
     --badge-bg: #0000;
