@@ -16,13 +16,11 @@ const loadCategories = async () => {
     'https://openapi.programming-hero.com/api/categories'
   );
   const data = await res.json();
-  console.log(data);
   showCategories(data.categories);
 };
 
 // Show Categories
 const showCategories = data => {
-  console.log(data);
   // { id: 1, category_name: "Fruit Tree", small_description: "Trees that bear edible fruits like mango, guava, and jackfruit." }
   data.forEach(el => {
     categoriesParent.innerHTML += `

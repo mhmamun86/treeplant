@@ -1523,6 +1523,15 @@
   .z-50 {
     z-index: 50;
   }
+  .order-1 {
+    order: 1;
+  }
+  .order-2 {
+    order: 2;
+  }
+  .order-3 {
+    order: 3;
+  }
   .col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -1664,8 +1673,14 @@
     justify-content: flex-end;
     gap: calc(0.25rem * 2);
   }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
   }
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
@@ -1981,6 +1996,9 @@
   .w-full {
     width: 100%;
   }
+  .max-w-full {
+    max-width: 100%;
+  }
   .max-w-lg {
     max-width: var(--container-lg);
   }
@@ -2143,6 +2161,9 @@
   .rounded-box {
     border-radius: var(--radius-box);
   }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -2243,6 +2264,9 @@
   }
   .px-2\.5 {
     padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
@@ -2491,6 +2515,11 @@
       padding: calc(var(--spacing) * 10);
     }
   }
+  .md\:px-8 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+  }
   .md\:py-\[100px\] {
     @media (width >= 48rem) {
       padding-block: 100px;
@@ -2505,6 +2534,21 @@
     @media (width >= 48rem) {
       font-size: var(--text-5xl);
       line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
+  .lg\:order-1 {
+    @media (width >= 64rem) {
+      order: 1;
+    }
+  }
+  .lg\:order-2 {
+    @media (width >= 64rem) {
+      order: 2;
+    }
+  }
+  .lg\:order-3 {
+    @media (width >= 64rem) {
+      order: 3;
     }
   }
   .lg\:col-span-3 {
@@ -2547,6 +2591,11 @@
       grid-row-start: 1;
     }
   }
+  .lg\:mt-0 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
   .lg\:mt-10 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 10);
@@ -2580,6 +2629,16 @@
   .lg\:grid-rows-2 {
     @media (width >= 64rem) {
       grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .lg\:justify-end {
+    @media (width >= 64rem) {
+      justify-content: flex-end;
+    }
+  }
+  .lg\:justify-start {
+    @media (width >= 64rem) {
+      justify-content: flex-start;
     }
   }
   .xl\:col-span-3 {
