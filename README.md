@@ -17,10 +17,9 @@ There are some difference between the var, let and const .
   the same scope . can't change value directly but can change in object
   properties or an array element.
 
-  ## 2. What is the difference between map(), forEach(), and filter()?
+## 2. What is the difference between map(), forEach(), and filter()?
 
-  This all are used in array for different purpose and give different output
-  value
+This all are used in array for different purpose and give different output value
 
 - map(): map check all elements of an array using callback function but its
   give/return a new array satisfied the funtion without changed the orginal
